@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-import Navig from './Navig'
+import Navig from './src/Navig'
 
 const App = () => {
   return (
