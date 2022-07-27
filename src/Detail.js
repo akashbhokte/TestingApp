@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { FlatList, Image, Text, View, } from 'react-native'
 import Fontisto from 'react-native-vector-icons/Fontisto';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import { Divider } from 'react-native-paper';
 
 
 const Detail = ({ navigation, route }) => {
@@ -66,7 +67,9 @@ const Detail = ({ navigation, route }) => {
                         </View>
                     </View>
                 </View>
-                <View style={{ flex: 8, }}>
+                <View style={{ flex: 7, padding: '5%' }}>
+                    <Divider style={{ width: '100%', height: 1, marginVertical: '4%', borderColor: 'black', alignSelf: 'center' }} />
+
                     <Text style={{ fontSize: 22, }}>Episodes</Text>
 
                     <FlatList
