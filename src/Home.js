@@ -57,25 +57,27 @@ const Home = ({ navigation }) => {
 
     const ItemView = ({ item }) => {
         return (
-            <View style={{ flex: 1 }}>
+            <View style={{ flex: 1, alignItems: 'center' }}>
                 <Card style={{
                     width: '95%',
                     height: '97%',
-                    margin: 10,
-                    // padding: 10,
                     backgroundColor: 'ghostwhite'
                 }}>
                     <TouchableOpacity
                         onPress={() => navigation.navigate('Detail', { item: item })}
                     >
                         <View style={{ flex: 1, flexDirection: 'row', padding: '2%' }}>
-                            <View style={{ flex: 1, }}>
+                            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', marginHorizontal: '2%' }}>
                                 <Image
                                     source={{
                                         uri: item?.image,
                                     }}
-                                    style={{ height: 50, width: 50, flex: 1 }}
+                                    style={{ height: '100%', width: '100%', flex: 1, }}
                                 />
+                                <View style={{ backgroundColor: 'skyblue', padding: '0.5%', width: '80%', borderRadius: 10, marginTop: '-10%', alignSelf: 'center' }}>
+                                    <Text style={{ fontSize: 12, }}> {item.species.toUpperCase()}</Text>
+
+                                </View>
                             </View>
                             <View style={{ flex: 3, }}>
                                 <Text style={{ fontSize: 20 }}>{item.name}</Text>
