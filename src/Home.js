@@ -2,6 +2,9 @@ import { FlatList, Image, StyleSheet, Text, TouchableOpacity, View } from 'react
 import React, { useEffect, useState } from 'react'
 import { Button, Searchbar } from 'react-native-paper'
 import axios from 'axios';
+import Fontisto from 'react-native-vector-icons/Fontisto';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
+
 import { Card } from 'react-native-shadow-cards';
 
 const Home = ({ navigation }) => {
@@ -23,7 +26,6 @@ const Home = ({ navigation }) => {
 
         let maleArray = res?.data?.results.filter((i) => i.gender == "Male");
         let femaleArray = res?.data?.results.filter((i) => i.gender == "Female");
-
 
         if (sortBy == 'male') {
             setFilteredDataSource([...maleArray, ...femaleArray]);
@@ -78,11 +80,25 @@ const Home = ({ navigation }) => {
                             <View style={{ flex: 3, }}>
                                 <Text style={{ fontSize: 20 }}>{item.name}</Text>
                                 <View style={{ flex: 1, flexDirection: 'row' }}>
-                                    <View style={{ flex: 1, }}>
+                                    <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center', padding: 2 }}>
+                                        <FontAwesome name="mars" size={15} />
+                                        <Text style={{ marginHorizontal: '5%' }}>{item?.gender}</Text>
                                     </View>
-                                    <View style={{ flex: 1, }}>
+                                    <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center', padding: 2 }}>
+                                        <Fontisto name="earth" size={15} />
+
+                                        <Text style={{ marginHorizontal: '5%' }}>{item?.origin?.name}</Text>
                                     </View>
                                 </View>
+                            </View>
+                            <View style={{ flex: 1, alignItems: 'center' }}>
+                                <View style={{ flex: 1, }}>
+                                    <Text>episodes</Text>
+                                </View>
+                                <View style={{ flex: 1, backgroundColor: '#eee', width: '100%', alignItems: 'center', padding: '5%' }}>
+                                    <Text style={{ fontSize: 25 }}>{item?.episode.length}</Text>
+                                </View>
+
                             </View>
                         </View>
                     </TouchableOpacity>
@@ -92,8 +108,8 @@ const Home = ({ navigation }) => {
     };
 
     return (
-        <View style={{ flex: 1 }}>
-            <View style={{ flex: 1 }}>
+        <View style={{ flex: 1, backgroundColor: 'white' }}>
+            <View style={{ flex: 0.8 }}>
                 <Searchbar
                     placeholder="Search"
                     onChangeText={(text) => searchFilterFunction(text)}
@@ -102,7 +118,7 @@ const Home = ({ navigation }) => {
                 />
 
             </View>
-            <View style={{ flex: 1, flexDirection: 'row' }}>
+            <View style={{ flex: 0.5, flexDirection: 'row', }}>
                 <Button onPress={() => { setSortBy('male') }}>Male</Button>
                 <Button onPress={() => { setSortBy('female') }}>Female</Button>
 
