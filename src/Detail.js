@@ -40,16 +40,16 @@ const Detail = ({ navigation, route }) => {
 
                     <View style={{ flex: 1, flexDirection: 'row', padding: '4%' }}>
                         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', marginHorizontal: '2%' }}>
-                            <Text style={{ fontSize: 13, fontWeight: 'bold' }}>Season {item?.episode.slice(1, 3)}</Text>
+                            <Text style={{ fontSize: 13, fontWeight: 'bold', color: 'black' }}>Season {item?.episode.slice(1, 3)}</Text>
                             <View style={{ flex: 1, backgroundColor: '#eee', alignItems: 'center', padding: '15%', justifyContent: 'center', borderRadius: 5 }}>
                                 <Text style={{ fontSize: 25 }}>{item?.episode.slice(4, 6)}</Text>
                             </View>
                         </View>
                         <View style={{ flex: 3, paddingLeft: '3%', }}>
-                            <Text style={{ fontSize: 18, fontWeight: 'bold' }}>{item.name}</Text>
+                            <Text style={{ fontSize: 18, fontWeight: 'bold', color: 'black' }}>{item.name}</Text>
                             <View style={{ flex: 1, flexDirection: 'row' }}>
                                 <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center', }}>
-                                    <Text style={{}}>{item?.air_date}</Text>
+                                    <Text style={{ color: 'black' }}>{item?.air_date}</Text>
                                 </View>
                             </View>
                         </View>
@@ -81,26 +81,26 @@ const Detail = ({ navigation, route }) => {
             <View style={{ flex: 2, }}>
                 <View style={{ flex: 1, }}>
 
-                    <Text style={{ fontSize: 22, textAlign: 'center', fontWeight: 'bold' }}>
+                    <Text style={{ fontSize: 22, textAlign: 'center', fontWeight: 'bold', color: 'black' }}>
 
                         {item.name}
                     </Text>
                     <View style={{ flex: 1, flexDirection: 'row', width: '50%', alignSelf: 'center' }}>
                         <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center', padding: 2 }}>
                             <FontAwesome name="mars" size={15} />
-                            <Text style={{ marginHorizontal: '5%', fontSize: 16 }}>{item?.gender}</Text>
+                            <Text style={{ marginHorizontal: '5%', fontSize: 16, color: 'black' }}>{item?.gender}</Text>
                         </View>
                         <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center', padding: 2 }}>
                             <Fontisto name="earth" size={15} />
 
-                            <Text style={{ marginHorizontal: '5%', fontSize: 16 }}>{item?.origin?.name}</Text>
+                            <Text style={{ marginHorizontal: '5%', fontSize: 16, color: 'black' }}>{item?.origin?.name}</Text>
                         </View>
                     </View>
                 </View>
                 <View style={{ flex: 7, padding: '5%' }}>
                     <Divider style={{ width: '100%', height: 1, marginVertical: '4%', borderColor: 'black', alignSelf: 'center' }} />
 
-                    <Text style={{ fontSize: 22, }}>Episodes</Text>
+                    <Text style={{ fontSize: 22, lineHeight: 45, fontWeight: 'bold', color: 'black' }}>Episodes</Text>
 
                     {
                         loading ? (
