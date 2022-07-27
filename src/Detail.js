@@ -92,25 +92,25 @@ const Detail = ({ navigation, route }) => {
 
             </View>
             <View style={{ flex: 2, }}>
-                <View style={{ flex: 1, }}>
+                <View style={{ flex: 2, justifyContent: 'space-around' }}>
 
                     <Text style={{ fontSize: 22, textAlign: 'center', fontWeight: 'bold', color: 'black' }}>
 
                         {item.name}
                     </Text>
-                    <View style={{ flex: 1, flexDirection: 'row', width: '50%', alignSelf: 'center' }}>
-                        <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center', padding: 2 }}>
+                    <View style={{ flex: 1, flexDirection: 'row', width: '70%', alignSelf: 'center', justifyContent: 'space-evenly' }}>
+                        <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center', padding: '1%' }}>
                             <FontAwesome name="mars" size={15} />
                             <Text style={{ marginHorizontal: '5%', fontSize: 16, color: 'black' }}>{item?.gender}</Text>
                         </View>
-                        <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center', padding: 2 }}>
+                        <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center', padding: '1%' }}>
                             <Fontisto name="earth" size={15} />
 
                             <Text style={{ marginHorizontal: '5%', fontSize: 16, color: 'black' }}>{item?.origin?.name}</Text>
                         </View>
                     </View>
                 </View>
-                <View style={{ flex: 7, padding: '5%' }}>
+                <View style={{ flex: 8, padding: '5%' }}>
                     <Divider style={{ width: '100%', height: 1, marginVertical: '4%', borderColor: 'black', alignSelf: 'center' }} />
 
                     <Text style={{ fontSize: 22, lineHeight: 45, fontWeight: 'bold', color: 'black' }}>Episodes</Text>

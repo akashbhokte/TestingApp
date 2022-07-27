@@ -1,4 +1,4 @@
-import { FlatList, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { FlatList, Image, KeyboardAvoidingView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { Button, Searchbar } from 'react-native-paper'
 import axios from 'axios';
@@ -111,44 +111,47 @@ const Home = ({ navigation }) => {
     };
 
     return (
-        <View style={{ flex: 1, backgroundColor: 'ghostwhite' }}>
-            <View style={{ flex: 1 }}>
-                <Searchbar
-                    placeholder="Search"
-                    onChangeText={(text) => searchFilterFunction(text)}
-                    value={search}
-                    style={{ borderRadius: 6, margin: '4%', borderWidth: 0.5 }}
+        <KeyboardAvoidingView style={{ flex: 1 }} behavior='height' enabled={false}>
+            <View style={{ flex: 1, backgroundColor: 'ghostwhite' }}>
+                <View style={{ flex: 1 }}>
+                    <Searchbar
+                        placeholder="Search"
+                        onChangeText={(text) => searchFilterFunction(text)}
+                        value={search}
+                        style={{ borderRadius: 6, margin: '4%', borderWidth: 0.5 }}
 
-                />
+                    />
 
-            </View>
-            <View style={{ flex: 0.5, flexDirection: 'row', width: '60%', justifyContent: 'space-around', padding: '2%' }}>
-                <TouchableOpacity
-                    onPress={() => { setSortBy('male') }}
-                    style={{ flexDirection: 'row', padding: '2%', borderWidth: 1, borderRadius: 6, alignItems: 'center', justifyContent: 'space-around', width: '40%' }}>
-                    <FontAwesome name="mars" size={15} color={'black'} />
-                    <Text style={{ color: 'black' }}>Male</Text>
-                </TouchableOpacity>
-                <TouchableOpacity
-                    onPress={() => { setSortBy('female') }}
-                    style={{ flexDirection: 'row', padding: '2%', borderWidth: 1, borderRadius: 6, alignItems: 'center', justifyContent: 'space-around', width: '40%' }}>
-                    <FontAwesome name="venus" size={15} color={'black'} />
-                    <Text style={{ color: 'black' }}>Female</Text>
-                </TouchableOpacity>
-                {/* <Button onPress={() => { setSortBy('male') }}>Male</Button>
+                </View>
+                <View style={{ flex: 0.5, flexDirection: 'row', width: '60%', justifyContent: 'space-around', padding: '2%' }}>
+                    <TouchableOpacity
+                        onPress={() => { setSortBy('male') }}
+                        style={{ flexDirection: 'row', padding: '2%', borderWidth: 1, borderRadius: 6, alignItems: 'center', justifyContent: 'space-around', width: '40%' }}>
+                        <FontAwesome name="mars" size={15} color={'black'} />
+                        <Text style={{ color: 'black' }}>Male</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                        onPress={() => { setSortBy('female') }}
+                        style={{ flexDirection: 'row', padding: '2%', borderWidth: 1, borderRadius: 6, alignItems: 'center', justifyContent: 'space-around', width: '40%' }}>
+                        <FontAwesome name="venus" size={15} color={'black'} />
+                        <Text style={{ color: 'black' }}>Female</Text>
+                    </TouchableOpacity>
+                    {/* <Button onPress={() => { setSortBy('male') }}>Male</Button>
                 <Button onPress={() => { setSortBy('female') }}>Female</Button> */}
 
-            </View>
+                </View>
 
-            <View style={{ flex: 9 }}>
+                <View style={{ flex: 9 }}>
+                    <FlatList
+                        data={filteredDataSource}
+                        keyExtractor={(item, index) => index.toString()}
+                        renderItem={ItemView}
+                    />
 
-                <FlatList
-                    data={filteredDataSource}
-                    keyExtractor={(item, index) => index.toString()}
-                    renderItem={ItemView}
-                />
+
+                </View>
             </View>
-        </View>
+        </KeyboardAvoidingView>
     )
 }
 
