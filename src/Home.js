@@ -96,7 +96,7 @@ const Home = ({ navigation }) => {
                             </View>
                             <View style={{ flex: 1, alignItems: 'center' }}>
                                 <View style={{ flex: 1, }}>
-                                    <Text style={{ fontWeight: 'bold' }}>episodes</Text>
+                                    <Text style={{ fontWeight: 'bold', color: 'black' }}>episodes</Text>
                                 </View>
                                 <View style={{ flex: 1, backgroundColor: '#eee', alignItems: 'center', width: '80%', justifyContent: 'center', borderRadius: 5 }}>
                                     <Text style={{ fontSize: 25 }}>{item?.episode.length}</Text>
