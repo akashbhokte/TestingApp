@@ -61,7 +61,7 @@ const Home = ({ navigation }) => {
                 <Card style={{
                     width: '95%',
                     height: '97%',
-                    backgroundColor: 'ghostwhite',
+                    backgroundColor: 'white',
                     padding: '2%'
                 }}>
                     <TouchableOpacity
@@ -111,7 +111,7 @@ const Home = ({ navigation }) => {
     };
 
     return (
-        <View style={{ flex: 1, backgroundColor: 'white' }}>
+        <View style={{ flex: 1, backgroundColor: 'ghostwhite' }}>
             <View style={{ flex: 1 }}>
                 <Searchbar
                     placeholder="Search"

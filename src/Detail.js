@@ -1,6 +1,6 @@
 
 import React, { useEffect, useState } from 'react'
-import { FlatList, Image, Text, View, } from 'react-native'
+import { FlatList, Image, Text, TouchableOpacity, View, } from 'react-native'
 import Fontisto from 'react-native-vector-icons/Fontisto';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import { Divider } from 'react-native-paper';
@@ -35,7 +35,7 @@ const Detail = ({ navigation, route }) => {
                 <Card style={{
                     width: '100%',
                     height: '97%',
-                    backgroundColor: 'ghostwhite',
+                    backgroundColor: 'white',
                 }}>
 
                     <View style={{ flex: 1, flexDirection: 'row', padding: '4%' }}>
@@ -60,16 +60,29 @@ const Detail = ({ navigation, route }) => {
     };
 
     return (
-        <View style={{ flex: 1, }}>
+        <View style={{ flex: 1, backgroundColor: 'ghostwhite' }}>
+            <View style={{ flex: 0.25, }}>
+                <TouchableOpacity onPress={() => {
+                    navigation.goBack();
+                }}
+                    style={{ justifyContent: 'center', flex: 1 }}
+                >
+                    <FontAwesome name="angle-left" style={{ marginLeft: '5%' }} color={'black'} size={40} />
+
+                </TouchableOpacity>
+
+            </View>
             <View style={{ flex: 1, }}>
                 <Image source={{
                     uri: item?.image,
                 }}
                     style={{
                         flex: 1,
-                        width: '100%',
+                        alignSelf: 'center',
+                        width: '75%',
                         height: '100%',
-                        resizeMode: 'contain'
+                        resizeMode: 'contain',
+                        borderRadius: 6
                     }}
                 />
                 <View style={{ backgroundColor: 'skyblue', width: '30%', alignSelf: 'center', padding: '1%', borderRadius: 30, marginTop: '-4%' }}>
